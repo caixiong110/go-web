@@ -79,7 +79,8 @@
 
 import {
   getApplicationList,
-  create
+  create,
+  deleteApi
 } from '@/api/application'
 import infoList from '@/mixins/infoList'
 import { toSQLLine } from '@/utils/stringFun'

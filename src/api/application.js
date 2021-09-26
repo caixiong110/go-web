@@ -1,7 +1,4 @@
 import service from '@/utils/request'
-
-
-
 // @Tags User
 // @Summary 分页获取用户列表
 // @Security ApiKeyAuth
@@ -25,3 +22,13 @@ export const create = (data) => {
     data
   })
 }
+
+
+export const deleteApi = (data) => {
+  return service({
+    url: '/application/delete',
+    method: 'delete',
+    data: data
+  })
+}
+
