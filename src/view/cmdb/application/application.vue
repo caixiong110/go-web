@@ -22,6 +22,8 @@
         </el-form-item>
       </el-form>
     </div>
+    <!-- end search-->
+
     <el-table :data="tableData" border stripe @sort-change="sortChange" @selection-change="handleSelectionChange">
       <el-table-column
         type="selection"
@@ -43,6 +45,8 @@
         </template>
       </el-table-column>
     </el-table>
+
+    <!-- end table -->
     <el-pagination
       :current-page="page"
       :page-size="pageSize"
@@ -53,6 +57,7 @@
       @current-change="handleCurrentChange"
       @size-change="handleSizeChange"
     />
+    <!-- page -->
 
     <el-dialog v-model="dialogFormVisible" :before-close="closeDialog" :title="dialogTitle">
       <el-form ref="apiForm" :inline="true" :model="form" :rules="rules" label-width="80px">
@@ -71,6 +76,9 @@
         </div>
       </template>
     </el-dialog>
+    <!--add page-->
+
+
   </div>
 </template>
 
