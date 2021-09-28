@@ -32,3 +32,10 @@ export const deleteApi = (data) => {
   })
 }
 
+export const getApplicationById = (data) => {
+  return service({
+    url: '/application/getApplicationById',
+    method: 'post',
+    data
+  })
+}

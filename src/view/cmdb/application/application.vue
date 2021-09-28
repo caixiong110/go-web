@@ -8,7 +8,7 @@
  
         <el-form-item>
           <el-button size="mini" type="primary" icon="el-icon-search" @click="onSubmit">查询</el-button>
-          <el-button size="mini" type="primary" icon="el-icon-plus" @click="openDialog('addApi')">新增</el-button>
+          <el-button size="mini" type="primary" icon="el-icon-plus" @click="openDialog('add')">新增</el-button>
           <el-popover v-model:visible="deleteVisible" placement="top" width="160">
             <p>确定要删除吗？</p>
             <div style="text-align: right; margin: 0">
@@ -88,7 +88,8 @@
 import {
   getApplicationList,
   create,
-  deleteApi
+  deleteApi,
+  getApplicationById
 } from '@/api/application'
 import infoList from '@/mixins/infoList'
 import { toSQLLine } from '@/utils/stringFun'
@@ -193,7 +194,7 @@ export default {
     },
     openDialog(type) {
       switch (type) {
-        case 'addApi':
+        case 'add':
           this.dialogTitle = '新增Application'
           break
         case 'edit':
@@ -206,7 +207,8 @@ export default {
       this.dialogFormVisible = true
     },
     async editApi(row) {
-      const res = await getApiById({ id: row.ID })
+      console.log(row.id)
+      const res = await getApplicationById({ id: row.id })
       this.form = res.data.api
       this.openDialog('edit')
     },
