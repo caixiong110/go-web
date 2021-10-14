@@ -209,7 +209,7 @@ export default {
     async editApi(row) {
       console.log(row.id)
       const res = await getApplicationById({ id: row.id })
-      this.form = res.data.api
+      this.form = res.data.app
       this.openDialog('edit')
     },
     async deleteApi(row) {
@@ -242,7 +242,7 @@ export default {
       this.$refs.apiForm.validate(async valid => {
         if (valid) {
           switch (this.type) {
-            case 'addApi':
+            case 'add':
               {
                 const res = await create(this.form)
                 if (res.code === 0) {
@@ -259,7 +259,7 @@ export default {
               break
             case 'edit':
               {
-                const res = await updateApi(this.form)
+                const res = await updateApplication(this.form)
                 if (res.code === 0) {
                   this.$message({
                     type: 'success',
