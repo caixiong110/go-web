@@ -140,8 +140,11 @@ export default {
     async submitForm() {
       this.$refs.loginForm.validate(async(v) => {
         if (v) {
+          console.log("login .....")
           const flag = await this.login()
+          console.log(flag)
           if (!flag) {
+            console.log("................")
             this.loginVerify()
           }
         } else {
